@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-    <style>
-        body{
-        background-image:url("./images/bgteste.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
+    <title></title>
 </head>
 <body>
-    <script type="text/javascript" src="https://cronchatcronapp.cronapp.io/get-chat?token=5553339893:AAF079GcUe8lkPHkGI_KHKmzuMq3LIkxdww"></script>
+<img src="https://raw.githubusercontent.com/lucasgandolfi/botsplayground/master/bg.jpg">
+<script type="text/javascript">
+    var url_string = window.location.href;
+    var url = new URL(urlstring);
+    var notRa = 'semRa';
+    var acessChat = url.searchParams.get("acessChat");
+
+    if(acessChat !== null){
+        localStorage.setItem('chatbot-info-student', acessChat);
+    }else if(acessChat === null){
+        localStorage.setItem('chatbot-info-student', notRa);
+    }
+
+
+    var paramChat;
+    var paramChatConcat;
+    paramChat = localStorage.getItem('chatbot-info-student');
+    paramChatConcat = paramChat;
+    let cronchatToken = '5553339893:AAF079GcUe8lkPHkGI_KHKmzuMq3LIkxdww';
+    let hostURL = 'https://cronchatcronapp.cronapp.io/get-chat?token=';
+    let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
+    let scriptHTML = document.createElement("script");
+    scriptHTML.src = chatbotURL;
+    scriptHTML.type = 'text/javascript'
+    document.body.appendChild(scriptHTML);
+
+    window.onload = function () {
+    if (acessChat != null) {
+        setTimeout(function(){
+            clickBtnChat()
+          }, 1000);
+       }
+    }
+    function clickBtnChat(){
+        var btnConversationId = 'chatBtn' + localStorage.getItem('conversationidbot');
+        document.getElementById(btnConversationId).click();
+}
+</script>
 </body>
 </html>
 
