@@ -14,28 +14,25 @@
 <script type="text/javascript">
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var notRa = 'semRa';
     var acessChat = url.searchParams.get("acessChat");
 
-    if(acessChat !== null){
+      if (acessChat != null) {
         localStorage.setItem('chatbot-info-student', acessChat);
-    }else if(acessChat === null){
-        localStorage.setItem('chatbot-info-student', notRa);
+    }else{
+        localStorage.setItem('chatbot-info-student', "withoutAcessChat");
     }
-
+        
 
     var paramChat;
-    var paramChatConcat;
     paramChat = localStorage.getItem('chatbot-info-student');
-    paramChatConcat = paramChat;
     let cronchatToken = '5553339893:AAF079GcUe8lkPHkGI_KHKmzuMq3LIkxdww';
-    let hostURL = 'https://cronchatcronapp.cronapp.io/get-chat?token=';
-    let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
+    let hostURL = 'https://cronchatfurb.cronapp.io/get-chat?token=';
+    let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChat}`;
     let scriptHTML = document.createElement("script");
     scriptHTML.src = chatbotURL;
     scriptHTML.type = 'text/javascript'
     document.body.appendChild(scriptHTML);
-
+    
     window.onload = function () {
     if (acessChat != null) {
         setTimeout(function(){
