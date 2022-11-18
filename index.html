@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+	<title></title>
     <style>
         body{
             background-image: url('./images/slide02.jpg');
@@ -26,9 +25,9 @@
     var paramChatConcat;
     paramChat = localStorage.getItem('chatbot-info-student');
     paramChatConcat = paramChat;
-    let cronchatToken = '5553339893:AAF079GcUe8lkPHkGI_KHKmzuMq3LIkxdww';
+    let cronchatToken = '5224675044:AAHAAQHv_aKR-FFsktN10-mzJiWWp6x0tMU';
     let hostURL = 'https://cronchatcronapp.cronapp.io/get-chat?token=';
-    let chatbotURL = ${hostURL}${cronchatToken}&extraparam=${paramChatConcat};
+    let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
     let scriptHTML = document.createElement("script");
     scriptHTML.src = chatbotURL;
     scriptHTML.type = 'text/javascript'
@@ -41,7 +40,7 @@
        }
     }
     function clickBtnChat(){
-        var btnConversationId = 'chatBtn' + localStorage.getItem('conversationidbot');
+        var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
         document.getElementById(btnConversationId).click();
 }
 </script>
