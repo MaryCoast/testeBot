@@ -26,7 +26,7 @@
     paramChat = localStorage.getItem('chatbot-info-student');
     paramChatConcat = paramChat;
     let cronchatToken = '5553339893:AAF079GcUe8lkPHkGI_KHKmzuMq3LIkxdww';
-    let hostURL = 'https://cronchat-unicesumar-prod.cronapp.io/get-chat?token=';
+    let hostURL = 'https://cronchat-unicesumar-homolog.cronapp.io/get-chat?token=';
     let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
     let scriptHTML = document.createElement("script");
     scriptHTML.src = chatbotURL;
